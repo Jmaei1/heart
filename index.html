@@ -1,152 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FOR MY AMANKOT</title>
-  <style>
-    /* Body - lighter pink background to contrast the pages */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #fdeef0; /* a soft pink */
-      overflow: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOR MY AMANKOT</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8e8e8;
+            overflow: hidden;
+        }
 
-    /* Container for the entire "book" */
-    .book {
-      perspective: 1000px;
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+        .book {
+            perspective: 1000px;
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    /* Container that holds all pages, enabling 3D flipping */
-    .pages {
-      width: 70%;  /* adjust as desired */
-      height: 70%; /* adjust as desired */
-      position: relative;
-      transform-style: preserve-3d;
-    }
+        .pages {
+            width: 80%;
+            height: 70%;
+            position: relative;
+            transform-style: preserve-3d;
+        }
 
-    /* Base page styling */
-    .page {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-color: #fff;
-      /* Thicker pink border to resemble the screenshot's frame */
-      border: 10px solid #ffd1dc; 
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      transform-origin: right center;
-      transform-style: preserve-3d;
-      transition: transform 0.8s ease-in-out;
-      z-index: 1;
-    }
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            border: 2px solid #ffd1dc;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            transform-origin: right center;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease-in-out;
+            z-index: 1;
+        }
 
-    /* Even pages flip from the left side */
-    .page:nth-child(even) {
-      left: 0;
-      transform-origin: left center;
-    }
+        .page:nth-child(even) {
+            left: 0;
+            transform-origin: left center;
+        }
 
-    /* The "inside" content of each page */
-    .page-content {
-      padding: 40px; /* more padding for a nicer layout */
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: start;
-      flex-direction: column;
-      height: 100%;
-      box-sizing: border-box;
-      overflow-y: auto;
-    }
+        .page-content {
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100%;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
 
-    /* Page headings in pink */
-    .page-content h1 {
-      font-size: 2rem;
-      color: #ff6f91;
-      margin-bottom: 1rem;
-    }
+        .page-content h1 {
+            font-size: 2rem;
+            color: #ff6f91;
+        }
 
-    /* Paragraph text in a darker gray/brown for readability */
-    .page-content p {
-      font-size: 1.1rem;
-      color: #714c4c;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
+        .page-content p {
+            font-size: 1.2rem;
+            color: #714c4c;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
 
-    /* Images inside pages */
-    .page-content img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
+        .page-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
 
-    /* The flip animation */
-    .page.flipped {
-      transform: rotateY(-180deg);
-    }
+        .page.flipped {
+            transform: rotateY(-180deg);
+        }
 
-    /* Cover pages with a gentle gradient animation */
-    @keyframes gradient {
-      0%   { background-color: #ffd1dc; }
-      50%  { background-color: #ffe4e4; }
-      100% { background-color: #ffd1dc; }
-    }
-    .cover {
-      background: linear-gradient(45deg, #ffcad4, #ffe5ec);
-      animation: gradient 3s infinite;
-    }
-  </style>
+        @keyframes gradient {
+            0% {
+                background-color: #ffd1dc;
+            }
+            50% {
+                background-color: #ffe4e4;
+            }
+            100% {
+                background-color: #ffd1dc;
+            }
+        }
+
+        .cover {
+            background: linear-gradient(45deg, #ffcad4, #ffe5ec);
+            animation: gradient 3s infinite;
+        }
+    </style>
 </head>
 <body>
-  <div class="book">
-    <div class="pages">
-      <!-- Cover Page -->
-      <div class="page cover">
-        <div class="page-content">
-          <h1>My Love for You</h1>
-          <p>A Scrapbook Journal</p>
-        </div>
-      </div>
+    <div class="book">
+        <div class="pages">
+            <div class="page cover">
+                <div class="page-content">
+                    <h1>Happy 1st Anniversary!</h1>
+                    <p>Amankot</p>
+                </div>
+            </div>
+            <div class="page">
+                <div class="page-content">
+                    <h1></h1>
+                    <p>You are the sunshine of my life. Every day with you is brighter than the last, and I cherish the moments we share, and I look forward to many more adventures.</p>
+                    <img src="" alt="">
+                </div>
+            </div>
+            <div class="page">
+                <div class="page-content">
+                    <h1>**Happy Anniversary Aman💖✨**</h1>
+                    <p>  
 
-      <!-- Page 1 -->
-      <div class="page">
-        <div class="page-content">
-          <h1>Page 1</h1>
-          <p>You are the sunshine of my life. Every day with you is brighter than the last.</p>
-          <img src="https://via.placeholder.com/300x200" alt="Memory 1" />
+                        
+                        
+                         <br>  
+                        
+                        A whole year 365 days of love, laughter, and yes, our fair share of misunderstandings too. Who would have thought that meeting in such an unexpected way would lead to something this deep, this real? I never imagined that someone miles away could make such a big impact on my heart, but here we are, proving that distance means nothing when love is real.  
+                        
+                        LDR isn’t easy there are moments when it truly tests my patience (and you know that all too well 🤡), but through every challenge, every late-night call, and every little moment in between, I still choose you. Every. Single. Day. Because it’s you, Aman.  
+                        
+                        I just need to know that we’re truly in this together, that it’s not just words but actions too. And deep down, I believe in us. I believe in the love we’ve built, the memories we’ve made, and the future we’re slowly creating. I love you soooo much, and I never want to doubt what we have. So let’s keep proving that this love is worth every second, every challenge, every mile between us.  
+                        
+                        One year down, forever to go. 🩷✨</p>
+                
+                </div>
+            </div>
+            <div class="page">
+                <div class="page-content">
+                    <h1></h1>
+                    <p>Hey my Amankot, 💖</p>
+                    <p>I can’t believe it's already been a 1year since we first started talking! Time has flown by so quickly, but at the same time, it feels like I've known you forever. Every day with you is so special, and I just want you to know how much I appreciate you. You really are the best thing that’s ever happened to me, and I feel so lucky to have you in my life. 🥰</p>
+                    <p>I know I’m not always the easiest person to deal with, especially when I let my emotions get the best of me. 😔 I’ve had my moments, whether it's throwing tantrums or saying things I didn’t mean, and I’m so sorry for that. I hate when I act that way, and I never want to hurt you. You deserve so much better than that, and I hope you know how much I regret it. Please know that it’s never about you; it’s just me being in my feelings sometimes. 😥 But I’ll work on it. I’m trying to be better for both of us. 💪</p>
+                    <p>You always show me so much patience and kindness, even when I don’t deserve it, and that just makes me love you even more. 💕 I really admire how you stay calm and understanding, even when I’m being all over the place. You always know how to make me feel better, and I can’t thank you enough for that. You make everything feel easier and lighter, just by being yourself. 🌟</p>
+                    <p>I can’t imagine going through this year without you by my side. You’re my person, the one I can talk to about anything, laugh with until my stomach hurts, and share my dreams and worries with. I feel so safe with you, and that’s something I never want to lose. You make me feel loved in a way that no one else ever has, and I truly hope I’m doing the same for you. 😘</p>
+                    <p>I know it’s not always easy with the distance between us, but every day I’m reminded of how strong our connection is. We might not be in the same place physically, but you’re always in my heart. 💖 And that’s something I wouldn’t trade for anything. You make me believe that distance really doesn’t matter when two people love each other as much as we do. 💌</p>
+                    <p>I can’t wait for the future, for all the little moments and big adventures we’ll have together. Whether it’s texting each other in the middle of the night or sharing a simple moment of silence, I cherish it all. I’m so proud of what we’ve built, and I know we’ll keep growing and making amazing memories together. 🥰</p>
+                    <p>Thank you for being my rock, my best friend, my love. You make everything feel brighter, and I can’t wait to see what the next 9 months (and beyond) hold for us. I love you more than I can even express, and I’m so thankful for you every single day. 💖</p>
+                    <p>Forever and always</p>
+                </div>
+            </div>
+            <div class="page">
+                <div class="page-content">
+                    <h1>Page 4</h1>
+                    <p>Roots Across the Distance</p>
+                    <p>Amankot, you are like a tree,</p>
+                    <p>Grown strong, yet still, you lean to me,</p>
+                    <p>From roots that stretch through time and space,</p>
+                    <p>You bloom in my heart, a steady grace.</p>
+                    <p>Your branches reach out, though far you stand,</p>
+                    <p>Yet I can feel your gentle hand,</p>
+                    <p>A touch that nurtures, calm and kind,</p>
+                    <p>Even when the world’s unkind.</p>
+                    <p>You are the sapling in my dreams,</p>
+                    <p>Planted where the sunlight gleams,</p>
+                    <p>And though we’re miles apart, you grow,</p>
+                    <p>Through every word, through every glow.</p>
+                    <p>Like leaves that rustle in the breeze,</p>
+                    <p>Your love whispers through the trees,</p>
+                    <p>A tender murmur, soft and pure,</p>
+                    <p>That reassures my heart is sure.</p>
+                    <p>The storms may come, the winds may howl,</p>
+                    <p>But like a tree, you don’t just bow—</p>
+                    <p>You stand, you sway, you bend but hold,</p>
+                    <p>A steadfast strength in shades of gold.</p>
+                    <p>Your roots, though buried deep in earth,</p>
+                    <p>Stretch to me, and bring me mirth,</p>
+                    <p>For in each whispered, quiet prayer,</p>
+                    <p>I know you're waiting, always there.</p>
+                    <p>The seasons change, the world may spin,</p>
+                    <p>But in my heart, you’ll always win,</p>
+                    <p>For every leaf that falls away,</p>
+                    <p>Another blooms to light our way.</p>
+                    <p>And when the winter winds may freeze,</p>
+                    <p>I’ll carry you within the trees,</p>
+                    <p>Your warmth will always find its way,</p>
+                    <p>To thaw my heart on coldest days.</p>
+                    <p>Amankot, my love, though skies divide,</p>
+                    <p>You’re like the plant that cannot hide—</p>
+                    <p>Your beauty shines through every hour,</p>
+                    <p>A steady, constant, blooming flower.</p>
+                    <p>The distance fades, the years may pass,</p>
+                    <p>But like a tree, we’ll always last,</p>
+                    <p>For love, like roots, will deeply grow,</p>
+                    <p>In every storm, through every glow.</p>
+                </div>
+            </div>
+            <div class="page cover">
+                <div class="page-content">
+                    <h1>Thank You!</h1>
+                    <p>For being my everything. Here's to us, forever and always.</p>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
 
-      <!-- Page 2 -->
-      <div class="page">
-        <div class="page-content">
-          <h1>Page 2</h1>
-          <p>I cherish the moments we share, and I look forward to many more adventures.</p>
-          <img src="https://via.placeholder.com/300x200" alt="Memory 2" />
-        </div>
-      </div>
+    <script>
+        const pages = document.querySelectorAll('.page');
+        let currentPage = 0;
 
-      <!-- Page 3 -->
-      <div class="page">
-        <div class="page-content">
-          <h1>Page 3</h1>
-          <p>Hey my Amankot, 💖</p>
-          <p>I can’t believe it's already been 9 months since we first started talking! Time has flown by so quickly, but at the same time, it feels like I've known you forever. Every day with you is so special, and I just want you to know how much I appreciate you. You really are the best thing that’s ever happened to me, and I feel so lucky to have you in my life. 🥰</p>
-          <p>I know I’m not always the easiest person to deal with, especially when I let my emotions get the best of me. 😔 I’ve had my moments, whether it's throwing tantrums or saying things I didn’t mean, and I’m so sorry for that. I hate when I act that way, and I never want to hurt you. You deserve so much better than that, and I hope you know how much I regret it. Please know that it’s never about you; it’s just me being in my feelings sometimes. 😥 But I’ll work on it. I’m trying to be better for both of us. 💪</p>
-          <p>You always show me so much patience and kindness, even when I don’t deserve it, and that just makes me love you even more. 💕 I really admire how you stay calm and understanding, even when I’m being all over the place. You always know how to make me feel better, and I can’t thank you enough for that. You make everything feel easier and lighter, just by being yourself. 🌟</p>
-          <p>I can’t imagine going through this year without you by my side. You’re my person, the one I can talk to about anything, laugh with until my stomach hurts, and share my dreams and worries with. I feel so safe with you, and that’s something I never want to lose. You make me feel loved in a way that no one else ever has, and I truly hope I’m doing the same for you. 😘</p>
-          <p>I know it’s not always easy with the distance between us, but every day I’m reminded of how strong our connection is. We might not be in the same place physically, but you’re always in my heart. 💖 And that’s something I wouldn’t trade for anything. You make me believe that distance really doesn’t matter when two people love each other as much as we do. 💌</p>
-          <p>I can’t wait for the future, for all the little moments and big adventures we’ll have together. Whether it’s texting each other in the middle of the night or sharing a simple moment of silence, I cherish it all. I’m so proud of what we’ve built, and I know we’ll keep growing and making amazing memories together. 🥰</p>
-          <p>Thank you for being my rock, my best friend, my love. You make everything feel brighter, and I can’t wait to see what the next 9 months (and beyond) hold for us. I love you more than I can even express, and I’m so thankful for you every single day. 💖</p>
-          <p>Forever and always</p>
-        </div>
-   
+        pages.forEach((page, index) => {
+            page.style.zIndex = pages.length - index;
+            page.addEventListener('click', () => {
+                if (index === currentPage) {
+                    page.classList.add('flipped');
+                    currentPage++;
+
+                    // Reset to the first page after the last page
+                    if (currentPage === pages.length) {
+                        setTimeout(() => {
+                            pages.forEach(p => p.classList.remove('flipped'));
+                            currentPage = 0;
+                        }, 1000);
+                    }
+                } else if (index === currentPage - 1) {
+                    page.classList.remove('flipped');
+                    currentPage--;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
